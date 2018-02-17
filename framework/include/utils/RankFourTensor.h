@@ -66,6 +66,7 @@ public:
     symmetric_isotropic_E_nu,
     antisymmetric_isotropic,
     axisymmetric_rz,
+    general36,
     general,
     principal
   };
@@ -206,6 +207,7 @@ public:
    *             symmetric_isotropic (use fillSymmetricIsotropicFromInputVector)
    *             antisymmetric_isotropic (use fillAntisymmetricIsotropicFromInputVector)
    *             axisymmetric_rz (use fillAxisymmetricRZFromInputVector)
+   *             general36 (use fillGeneralMatrixFromInputVector)
    *             general (use fillGeneralFromInputVector)
    *             principal (use fillPrincipalFromInputVector)
    */
@@ -315,6 +317,13 @@ protected:
    */
   void fillAxisymmetricRZFromInputVector(const std::vector<Real> & input);
 
+  /**
+   * fillGeneralMatrixFromInputVector takes 36 inputs to fill the Rank-4 tensor
+   * No symmetries are explicitly maintained
+   * @param input  C(i,j,k,l) = input[i*N*N*N + j*N*N + k*N + l]
+   */
+  void fillGeneralMatrixFromInputVector(const std::vector<Real> & input);
+  
   /**
    * fillGeneralFromInputVector takes 81 inputs to fill the Rank-4 tensor
    * No symmetries are explicitly maintained
